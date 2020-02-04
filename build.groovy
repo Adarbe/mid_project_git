@@ -2,7 +2,6 @@ node {
   def customImage = ""
       stage("pull code") {
         checkout scm
-        cleanWs()
        }
     stage('Docker build & push') {
       app = docker.build( "Credit Card Validator.ipynb:${commitHash}_${BUILD_NUMBER}", " --no-cache ." )
