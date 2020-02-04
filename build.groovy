@@ -11,7 +11,7 @@ node {
           }
         }
     stage("verify dockers") {
-      sh "docker images"
+      /bin/sh "docker images"
       }
     stage('Apply Kubernetes files') {
     withAWS(region: "us-east-1", redentialsId: "aws-key", usernameVariable: "AWS_ACCESS_KEY_ID", passwordVariable: "AWS_SECRET_ACCESS_KEY") {
