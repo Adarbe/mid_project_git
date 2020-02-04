@@ -4,7 +4,7 @@ node {
         checkout scm
        }
     stage('Docker build & push') {
-      app = docker.build( "Credit Card Validator.ipynb:\${commitHash}_${BUILD_NUMBER}", " --no-cache ." )
+      app = docker.build( "Credit Card Validator.ipynb:\${commitHash}_${BUILD_NUMBER}" )
 	app.run("-p 80:8888")
 	app.push()
 	sh(script: "docker rmi ${app.id}")
