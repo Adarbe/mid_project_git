@@ -6,11 +6,10 @@ node {
        }
     stage('Docker build & push') {
       app = docker.build( "Credit Card Validator.ipynb:${commitHash}_${BUILD_NUMBER}", " --no-cache ." )
-			app.run("-p 80:8888")
-			curl -L localhost:888
-			app.push()
-			sh(script: "docker rmi ${app.id}")
-			}
+	app.run("-p 80:8888")
+	app.push()
+	sh(script: "docker rmi ${app.id}")
+	}
       stage("build docker") {
         customImage = docker.build("dockerhub.adarbe")
         withDockerRegistry(credentialsId: 'dockerhub.adarbe') {
