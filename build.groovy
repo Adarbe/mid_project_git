@@ -4,7 +4,7 @@ node {
         checkout scm
        	}
       stage('Docker build ') {
-	app = docker.build( "adarbe/card_validation:${BUILD_NUMBER}", " --no-cache ." )
+	app = docker.build( "adarbe/card_validation:${BUILD_NUMBER}")
 	withDockerRegistry(credentialsId: 'adarbe') {
         app.push()
 		}
