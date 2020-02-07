@@ -2,8 +2,8 @@ node {
   def customImage = ""
       stage("pull code") {
         checkout scm
-       }
-    stage('Docker build & push') {
+       	}
+      stage('Docker build & push') {
 	app = docker.build( "adarbe/mid_project_git:${commitHash}_${BUILD_NUMBER}", " --no-cache ." )
 	app.run("-p 80:8888")
 	app.push()
