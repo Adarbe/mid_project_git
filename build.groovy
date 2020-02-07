@@ -5,7 +5,7 @@ node {
        	}
       stage('Docker build ') {
 	app = docker.build( "adarbe/card_validation:${BUILD_NUMBER}", " --no-cache ." )
-	withDockerRegistry(credentialsId: 'dockerhub') {
+	withDockerRegistry(credentialsId: 'adarbe') {
         customImage.push()
 		}
       }
