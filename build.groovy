@@ -1,9 +1,9 @@
 node {
   def app = ""
       stage("pull code") {
-	 git "https://github.com/Adarbe/card_validation.git"
+	 repo = git "https://github.com/Adarbe/card_validation.git"
       stage('Docker build ') {
-	app = docker.build( "adarbe/card_validation:${getProjectName()} ${BUILD_NUMBER}")
+	app = docker.build( "adarbe/card_validation:${repo.GIT_COMMIT} ${BUILD_NUMBER}")
 	withDockerRegistry(credentialsId: 'dockerhub.adarbe') {
         app.push()
 		}
