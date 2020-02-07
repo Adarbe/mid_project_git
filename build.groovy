@@ -4,7 +4,7 @@ node {
 	 git "https://github.com/Adarbe/card_validation.git"
       stage('Docker build ') {
 	app = docker.build( "adarbe/card_validation:${BUILD_NUMBER}")
-	withDockerRegistry(credentialsId: 'adarbe') {
+	withDockerRegistry(credentialsId: 'dockerhub.adarbe') {
         app.push()
 		}
       }
