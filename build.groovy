@@ -1,7 +1,10 @@
 node {
   def app = ""
       stage("pull code") {
-	      git url {"https://github.com/Adarbe/card_validation.git" "adarbe"}
+	      git{
+	      	url:"https://github.com/Adarbe/card_validation.git" ,
+		credentialsId:"adarbe"
+	      }
       stage('Docker build ') {
 	app = docker.build( "adarbe/card_validation:${BUILD_NUMBER}")
 	withDockerRegistry(credentialsId: 'adarbe') {
