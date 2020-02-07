@@ -1,5 +1,5 @@
 node {
-  def customImage = ""
+  def app = ""
       stage("pull code") {
         checkout scm
        	}
