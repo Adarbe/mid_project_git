@@ -15,12 +15,4 @@ node {
         customImage.push()
           }
         }
-#    stage('Apply Kubernetes files') {
-#      withAWS(region: "us-east-1", redentialsId: "aws-key", usernameVariable: "AWS_ACCESS_KEY_ID", passwordVariable: "AWS_SECRET_ACCESS_KEY") {
-#       sh """
-#       aws eks update-kubeconfig --name opsSchool-eks-sOuM9kEi
-#      kubectl apply -f deploy.yml
-#    """
-#      }
-#   }
 }
