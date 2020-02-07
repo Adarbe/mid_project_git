@@ -3,7 +3,7 @@ FROM python:3.6
 # Create app directory
 WORKDIR /app
 
-RUN pip install -r requirements.txt
+RUN pip install 
 
 
 RUN curl -fsSLO https://get.docker/builds/Linux/x86_64/docker-17.04.0-ce.tgz \
@@ -15,4 +15,4 @@ RUN curl -fsSLO https://get.docker/builds/Linux/x86_64/docker-17.04.0-ce.tgz \
 COPY src /app
 
 EXPOSE 8080
-CMD [ "python", "server.py" ]
+CMD [ "python"]
