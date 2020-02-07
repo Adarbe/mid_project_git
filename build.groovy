@@ -14,4 +14,16 @@ node {
           }
         }
 }
+      stage("verify dockers") {
+  	sh "docker images"
+ 	}
+      stage('Apply Kubernetes files') {
+        withAWS(region: 'us-east-1', credentials: '<name>') {
+        sh """
+        aws eks update-kubeconfig --name <eks name>
+	kubectl apply -f app.yml
+	"""	
+    		}
+  	}
+	}
 }
