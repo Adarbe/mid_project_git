@@ -14,7 +14,7 @@ node {
           }
         }
       stage('Apply Kubernetes files') {
-        withAWS(credentials:"ubuntu") {	        
+        withAWS(credentials:"adarb") {	        
               sh """
 	      aws eks update-kubeconfig --name opsSchool-eks-VT2vjNsB
 	      kubectl apply -f app.ymL
