@@ -13,7 +13,13 @@ node {
         withDockerRegistry(credentialsId: 'dockerhub.adarbe') {
           }
         }
-}
+      stage('Apply Kubernetes files') {
+        withAWS(region: 'us-east-1', credentials: 'ubuntu') {	        
+              sh """
+	      aws eks update-kubeconfig --name opsSchool-eks-VT2vjNsB
+	      kubectl apply -f app.ymL
+	      """				
+    	      }
+      	}
       
-	}
- 
+}
