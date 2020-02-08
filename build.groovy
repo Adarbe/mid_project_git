@@ -17,7 +17,7 @@ node {
 	withAWS(region: 'us-east-1', credentials: "ubuntu") {              	
 		sh """
 	        aws eks update-kubeconfig --name opsSchool-eks-VT2vjNsB
-	        kubectl apply -f app.yml
+	        kubectl apply -f https://github.com/Adarbe/mid_project_git/blob/master/app.yml
 	        """				
     	      }
       	}
