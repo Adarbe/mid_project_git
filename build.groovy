@@ -14,8 +14,8 @@ node {
           }
         }
       stage('Apply Kubernetes files') {
-	      withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'aws-key', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY']]) {AWS("--us-east-1")}{
-              	sh """
+	withAWS(credentials: 'aws-credentials', region: 'us-east-1') {              	
+		sh """
 	        aws eks update-kubeconfig --name opsSchool-eks-VT2vjNsB
 	        kubectl apply -f app.ymL
 	        """				
