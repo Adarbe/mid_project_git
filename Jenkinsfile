@@ -8,5 +8,6 @@ node {
 	withDockerRegistry(credentialsId: 'dockerhub.adarbe') {
         app.push()
 		}
-      }
+    	  }
+	}
 }    
